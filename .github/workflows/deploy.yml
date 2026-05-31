@@ -3,10 +3,14 @@ name: Deploy Portfolio to GitHub Pages
 on:
   push:
     branches:
-      - main  # Adjust if your primary branch is called 'master'
+      - main  # Change to master if your default branch is master
 
 permissions:
   contents: write
+
+# Fixes the Node.js deprecation warning globally across the runner
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 
 jobs:
   build-and-deploy:
@@ -18,7 +22,7 @@ jobs:
       - name: Set up Python Environment
         uses: actions/setup-python@v5
         with:
-          python-node-version: '3.11'
+          python-version: '3.11'  # Fixed: Changed from python-node-version
           cache: 'pip'
 
       - name: Install Generation Dependencies
@@ -35,5 +39,4 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./
           publish_branch: gh-pages
-          # Prevents the runner from destroying repository structures on target branches
           keep_files: false
