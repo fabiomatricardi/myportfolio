@@ -8,21 +8,27 @@ on:
 permissions:
   contents: write
 
+# Force the runner engine to use Node 24 directly to silence the deprecation logs
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: 'true'
+
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Code Base
-        uses: actions/checkout@v4.2.2  # Pinning to modern minor version
+        uses: actions/checkout@v4
 
       - name: Set up Python Environment
-        uses: actions/setup-python@v5.3.0  # Explicit modern minor release
+        uses: actions/setup-python@v5
         with:
           python-version: '3.11'
-          cache: 'pip'
+          # We temporarily remove the strict cache parameter for the first setup run 
+          # to clear the Cache 400 error block cleanly.
 
       - name: Install Generation Dependencies
         run: |
+          pip install --upgrade pip
           pip install -r requirements.txt
 
       - name: Compile HTML Site
@@ -30,7 +36,7 @@ jobs:
           python generate.py
 
       - name: Deploy Compiled index.html to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v4.0.0
+        uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./
