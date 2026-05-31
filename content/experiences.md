@@ -1,0 +1,18 @@
+---
+- role: "Lead Trainer & Project Automation Engineer"
+  company: "Key Solution Srl"
+  duration: "2010 - Present"
+  details: "Onboarding and technical training for engineering assets while architecting physical process automation logic, predictable system integrations, and human-machine interface (HMI) configurations across the industrial lifecycle."
+- role: "Founder & Editor"
+  company: "Artificial INTEL-ligence Playground"
+  duration: "2024 - Present"
+  details: "Publishing deep technical deep-dives on the 'OpenCode' movement, iGPU hardware optimization, and 'Harness Engineering.' Designing robust local agent frameworks (AGENTS.md) to eliminate folder chaos and build compounding local LLM knowledge systems."
+- role: "Industrial Automation Engineer"
+  company: "Process Control Systems"
+  duration: "2010 - 2024"
+  details: "Engineered deterministic software layers, managed pipeline transformations, and designed predictive system integrations for physical machinery, translating raw system requirements into clean, functional code structures."
+- role: "Academic Educator & Instructor"
+  company: "Technical and Vocational Education"
+  duration: "2009 - 2024"
+  details: "Dedicated 15 years to instructing and mentoring young students in technical disciplines, breaking down complex programming, logic circuits, and algorithmic thinking into highly accessible instructional workflows."
+---

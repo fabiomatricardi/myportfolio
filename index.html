@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fabio Matricardi | Industrial Automation Engineer & Local AI Architect</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- Tailwind CSS Engine -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        pampas: '#F4F3EE',
+                        charcoal: '#141413',
+                        claudeOrange: '#C15F3C',
+                        mutedBlue: '#6a9bcc',
+                        mossGreen: '#788c5d'
+                    },
+                    fontFamily: {
+                        sans: ['Poppins', 'sans-serif'],
+                        serif: ['Lora', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { font-family: 'Lora', serif; background-color: #F4F3EE; color: #141413; }
+        h1, h2, h3, h4 { font-family: 'Poppins', sans-serif; }
+        
+        /* Interactive micro-motions */
+        @keyframes revealUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-reveal { animation: revealUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) both; }
+        .delay-1 { animation-delay: 150ms; }
+        .delay-2 { animation-delay: 300ms; }
+    </style>
+</head>
+<body class="bg-pampas text-charcoal selection:bg-claudeOrange selection:text-white antialiased min-h-screen">
+
+    <!-- Hero / Profile Header Section -->
+    <header class="max-w-6xl mx-auto px-6 pt-20 pb-16 md:pt-32 md:pb-24">
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-16 items-center animate-reveal">
+            
+            <!-- Left Portrait Column (Asymmetrical sizing) -->
+            
+            <div class="md:col-span-4 flex justify-start">
+                <div class="relative group max-w-[280px] w-full aspect-square">
+                    <!-- Offset background design block to emphasize Claude style -->
+                    <div class="absolute inset-0 border border-claudeOrange translate-x-4 translate-y-4 rounded-xl transition-transform duration-300 group-hover:translate-x-2 group-hover:translate-y-2"></div>
+                    <div class="w-full h-full bg-charcoal rounded-xl overflow-hidden relative border border-charcoal/10">
+                        <img 
+                            src="https://i.ibb.co/tpLBhFhn/MATRICARDI-Fabio-foto-professionale.jpg" 
+                            alt="Fabio Matricardi" 
+                            class="w-full h-full object-cover filter grayscale contrast-110 transition-all duration-500 ease-out group-hover:grayscale-0 group-hover:scale-105"
+                        >
+                    </div>
+                </div>
+            </div>
+            
+
+            <!-- Right Bio Text Column -->
+            <div class="md:col-span-8 space-y-4">
+                <span class="text-claudeOrange font-sans uppercase tracking-widest text-xs font-semibold block">// System Profile Activated</span>
+                <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight text-charcoal leading-none">
+                    Fabio Matricardi
+                </h1>
+                <p class="text-lg md:text-xl font-sans text-charcoal/60 font-medium">
+                    Industrial Automation Engineer & Local AI Architect
+                </p>
+                <div class="prose prose-lg font-serif text-charcoal leading-relaxed pt-2 max-w-3xl">
+                    <p>I am an automation engineer, educator, and technical writer specializing in industrial process logic and privacy-focused AI systems. I bridge the gap between heavy industrial automation and local Large Language Models, treating context architecture with the same precision as a physical control loop.</p>
+<p>As the editor of the <em>Artificial INTEL-ligence Playground</em>, my work focuses on "Harness Engineering"—building deterministic local structures around open-source AI models using tools like <code>AGENTS.md</code> schemas and decentralized frameworks. Based in Novara, Italy, I help organizations build self-contained, sovereign personal knowledge networks.</p>
+                </div>
+            </div>
+
+        </div>
+    </header>
+
+    <!-- Content Sections Matrix -->
+    <main class="max-w-6xl mx-auto px-6 pb-24">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
+            
+            <!-- Left Side: Experience & Education Timeline nodes -->
+            <div class="lg:col-span-5 space-y-16 animate-reveal delay-1">
+                
+                <!-- Experience -->
+                <section>
+                    <h2 class="text-xs uppercase tracking-widest font-bold text-charcoal/40 border-b border-charcoal/10 pb-3 mb-6">Experience</h2>
+                    <div class="space-y-8">
+                        
+                        <div class="group">
+                            <span class="text-xs font-sans text-mossGreen font-semibold block mb-1">2010 - Present</span>
+                            <h3 class="text-lg font-bold font-sans tracking-tight text-charcoal group-hover:text-claudeOrange transition-colors duration-200">Lead Trainer & Project Automation Engineer</h3>
+                            <p class="text-sm font-sans text-charcoal/50 mb-2">Key Solution Srl</p>
+                            <p class="text-sm text-charcoal/80 leading-relaxed font-serif">Onboarding and technical training for engineering assets while architecting physical process automation logic, predictable system integrations, and human-machine interface (HMI) configurations across the industrial lifecycle.</p>
+                        </div>
+                        
+                        <div class="group">
+                            <span class="text-xs font-sans text-mossGreen font-semibold block mb-1">2024 - Present</span>
+                            <h3 class="text-lg font-bold font-sans tracking-tight text-charcoal group-hover:text-claudeOrange transition-colors duration-200">Founder & Editor</h3>
+                            <p class="text-sm font-sans text-charcoal/50 mb-2">Artificial INTEL-ligence Playground</p>
+                            <p class="text-sm text-charcoal/80 leading-relaxed font-serif">Publishing deep technical deep-dives on the 'OpenCode' movement, iGPU hardware optimization, and 'Harness Engineering.' Designing robust local agent frameworks (AGENTS.md) to eliminate folder chaos and build compounding local LLM knowledge systems.</p>
+                        </div>
+                        
+                        <div class="group">
+                            <span class="text-xs font-sans text-mossGreen font-semibold block mb-1">2010 - 2024</span>
+                            <h3 class="text-lg font-bold font-sans tracking-tight text-charcoal group-hover:text-claudeOrange transition-colors duration-200">Industrial Automation Engineer</h3>
+                            <p class="text-sm font-sans text-charcoal/50 mb-2">Process Control Systems</p>
+                            <p class="text-sm text-charcoal/80 leading-relaxed font-serif">Engineered deterministic software layers, managed pipeline transformations, and designed predictive system integrations for physical machinery, translating raw system requirements into clean, functional code structures.</p>
+                        </div>
+                        
+                        <div class="group">
+                            <span class="text-xs font-sans text-mossGreen font-semibold block mb-1">2009 - 2024</span>
+                            <h3 class="text-lg font-bold font-sans tracking-tight text-charcoal group-hover:text-claudeOrange transition-colors duration-200">Academic Educator & Instructor</h3>
+                            <p class="text-sm font-sans text-charcoal/50 mb-2">Technical and Vocational Education</p>
+                            <p class="text-sm text-charcoal/80 leading-relaxed font-serif">Dedicated 15 years to instructing and mentoring young students in technical disciplines, breaking down complex programming, logic circuits, and algorithmic thinking into highly accessible instructional workflows.</p>
+                        </div>
+                        
+                    </div>
+                </section>
+
+                <!-- Education -->
+                <section>
+                    <h2 class="text-xs uppercase tracking-widest font-bold text-charcoal/40 border-b border-charcoal/10 pb-3 mb-6">Education</h2>
+                    <div class="space-y-8">
+                        
+                        <div>
+                            <span class="text-xs font-sans text-mutedBlue font-semibold block mb-1">Class of 2010</span>
+                            <h3 class="text-md font-bold font-sans text-charcoal">Specialization in Industrial Engineering & Automation Systems</h3>
+                            <p class="text-xs font-sans text-charcoal/50 mb-2">Technical Systems Engineering</p>
+                            <p class="text-sm text-charcoal/80 font-serif">Focused study in deterministic automation structures, low-level process logic control, programming interfaces, and physical system architecture.</p>
+                        </div>
+                        
+                        <div>
+                            <span class="text-xs font-sans text-mutedBlue font-semibold block mb-1">Ongoing</span>
+                            <h3 class="text-md font-bold font-sans text-charcoal">Advanced Studies in Machine Learning Pipelines & Local AI Deployment</h3>
+                            <p class="text-xs font-sans text-charcoal/50 mb-2">Independent Research Ecosystem</p>
+                            <p class="text-sm text-charcoal/80 font-serif">Deep exploration into local model quantization, hardware optimization for consumer chips (iGPUs), structured text extraction pipelines, and advanced context isolation methods.</p>
+                        </div>
+                        
+                    </div>
+                </section>
+
+            </div>
+
+            <!-- Right Side: Selected Portfolio Cards (Interactive highlight cards) -->
+            <div class="lg:col-span-7 animate-reveal delay-2">
+                <section>
+                    <h2 class="text-xs uppercase tracking-widest font-bold text-charcoal/40 border-b border-charcoal/10 pb-3 mb-6">Selected Articles & Projects</h2>
+                    <div class="grid grid-cols-1 gap-8">
+                        
+                        <a href="https://medium.com/artificial-intel-ligence-playground/you-dont-need-an-ai-agent-for-every-single-thing-c2f5dd62ce59?sk=186ecd21117c6863ccf10ffe0bf57404" target="_blank" class="group block bg-white border border-charcoal/5 rounded-lg overflow-hidden transition-all duration-300 hover:border-claudeOrange/30 hover:shadow-xl hover:shadow-claudeOrange/5">
+                            <div class="aspect-[16/7] w-full bg-pampas overflow-hidden relative">
+                                <img src="https://miro.medium.com/v2/resize:fit:2000/format:webp/1*ObJ0UnGY0Yi_N9unA1kwsw.png" alt="You don’t need an AI agent for every single thing!" class="w-full h-full object-cover filter grayscale contrast-115 mix-blend-multiply group-hover:grayscale-0 group-hover:scale-102 transition-all duration-500 ease-out">
+                                <div class="absolute inset-0 bg-gradient-to-t from-charcoal/20 to-transparent mix-blend-multiply"></div>
+                            </div>
+                            <div class="p-6">
+                                <h3 class="text-xl font-bold font-sans tracking-tight text-charcoal group-hover:text-claudeOrange transition-colors duration-200 flex items-center justify-between">
+                                    You don’t need an AI agent for every single thing!
+                                    <span class="text-claudeOrange opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 text-sm">→</span>
+                                </h3>
+                                <p class="mt-2 text-sm text-charcoal/70 font-serif leading-relaxed">Your AI your Rules: Open Web UI and llama.cpp are all you need to work with your documents in full privacy and efficiency</p>
+                            </div>
+                        </a>
+                        
+                        <a href="https://github.com" target="_blank" class="group block bg-white border border-charcoal/5 rounded-lg overflow-hidden transition-all duration-300 hover:border-claudeOrange/30 hover:shadow-xl hover:shadow-claudeOrange/5">
+                            <div class="aspect-[16/7] w-full bg-pampas overflow-hidden relative">
+                                <img src="https://images.unsplash.com/photo-1639762681485-074b7f938ba0?auto=format&fit=crop&w=800&q=80" alt="Harness Engineering vs Prompt Engineering" class="w-full h-full object-cover filter grayscale contrast-115 mix-blend-multiply group-hover:grayscale-0 group-hover:scale-102 transition-all duration-500 ease-out">
+                                <div class="absolute inset-0 bg-gradient-to-t from-charcoal/20 to-transparent mix-blend-multiply"></div>
+                            </div>
+                            <div class="p-6">
+                                <h3 class="text-xl font-bold font-sans tracking-tight text-charcoal group-hover:text-claudeOrange transition-colors duration-200 flex items-center justify-between">
+                                    Harness Engineering vs Prompt Engineering
+                                    <span class="text-claudeOrange opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 text-sm">→</span>
+                                </h3>
+                                <p class="mt-2 text-sm text-charcoal/70 font-serif leading-relaxed">Moving beyond fragile text prompts to building rigid context environments using Model Context Protocol (MCP).</p>
+                            </div>
+                        </a>
+                        
+                        <a href="https://medium.com/artificial-intel-ligence-playground/i-built-an-ai-second-brain-to-cure-my-information-overload-and-here-is-how-5d48ed2bfe62?sk=77f8cc3ff5d9f56a3104e996cd07cf57" target="_blank" class="group block bg-white border border-charcoal/5 rounded-lg overflow-hidden transition-all duration-300 hover:border-claudeOrange/30 hover:shadow-xl hover:shadow-claudeOrange/5">
+                            <div class="aspect-[16/7] w-full bg-pampas overflow-hidden relative">
+                                <img src="https://miro.medium.com/v2/resize:fit:4800/format:webp/1*C0u1pFPf7jponAf1OLZusQ.png" alt="I Built an AI Second Brain to cure my information overload. And here is how." class="w-full h-full object-cover filter grayscale contrast-115 mix-blend-multiply group-hover:grayscale-0 group-hover:scale-102 transition-all duration-500 ease-out">
+                                <div class="absolute inset-0 bg-gradient-to-t from-charcoal/20 to-transparent mix-blend-multiply"></div>
+                            </div>
+                            <div class="p-6">
+                                <h3 class="text-xl font-bold font-sans tracking-tight text-charcoal group-hover:text-claudeOrange transition-colors duration-200 flex items-center justify-between">
+                                    I Built an AI Second Brain to cure my information overload. And here is how.
+                                    <span class="text-claudeOrange opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 text-sm">→</span>
+                                </h3>
+                                <p class="mt-2 text-sm text-charcoal/70 font-serif leading-relaxed">How an oil and gas engineer used the free Opencode coding agent to automate note-taking, kill the folder chaos, and reclaim writing time.</p>
+                            </div>
+                        </a>
+                        
+                    </div>
+                </section>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-charcoal/5 max-w-6xl mx-auto px-6 py-12 text-center text-xs font-sans text-charcoal/40">
+        Generated automatically via GitHub Actions • Built with Claude Aesthetic
+    </footer>
+
+</body>
+</html>
