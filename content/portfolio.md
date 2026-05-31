@@ -7,7 +7,7 @@
   description: "Moving beyond fragile text prompts to building rigid context environments using Model Context Protocol (MCP)."
   banner: "https://images.unsplash.com/photo-1639762681485-074b7f938ba0?auto=format&fit=crop&w=800&q=80"
   link: "https://github.com"
- - title: "I Built an AI Second Brain to cure my information overload. And here is how."
+- title: "I Built an AI Second Brain to cure my information overload. And here is how."
   description: "How an oil and gas engineer used the free Opencode coding agent to automate note-taking, kill the folder chaos, and reclaim writing time."
   banner: "https://miro.medium.com/v2/resize:fit:4800/format:webp/1*C0u1pFPf7jponAf1OLZusQ.png"
   link: "https://medium.com/artificial-intel-ligence-playground/i-built-an-ai-second-brain-to-cure-my-information-overload-and-here-is-how-5d48ed2bfe62?sk=77f8cc3ff5d9f56a3104e996cd07cf57" 
