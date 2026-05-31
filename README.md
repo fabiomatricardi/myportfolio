@@ -449,3 +449,147 @@ Once the initial Workflow runner completes execution successfully, a separate ta
 
 
 [https://fabiomatricardi.github.io/myportfolio/](https://fabiomatricardi.github.io/myportfolio/)
+
+
+---
+
+```markdown
+# 🏛️ Automated Portfolio Website (Claude Aesthetic)
+
+A minimal, high-impact, single-page professional portfolio built specifically for GitHub Pages. This project implements a modern architectural separation of concerns: **content lives strictly as pure Markdown (`.md`) text files**, while an automated processing script handles formatting, structure rendering, and deployment hands-free.
+
+Inspired by the **Claude Aesthetic**, the UI features an asymmetric layout built with elegant typography structures, generous whitespace metrics, editorial light/dark color block zones, and load-in micro-animations.
+
+---
+
+## 🛠️ System Architecture Diagram
+
+```text
+[ Push Changes to Main ] ────► Triggers GitHub Actions
+                                         │
+    ┌────────────────────────────────────┘
+    ▼
+[ Virtual Runner Container ]
+    │
+    ├── 1. Isolates Runtime Environment (Node 24 / Python 3.11)
+    ├── 2. Parses Metadata Frontmatter & Text Content via Jinja2 & Markdown
+    ├── 3. Compiles Clean Web Structure into local `/public` directory
+    └── 4. Uses Secure GITHUB_TOKEN to force-deploy output to `gh-pages` branch
+
+```
+
+---
+
+## 📂 Repository Layout
+
+```text
+├── .github/
+│   └── workflows/
+│       └── deploy.yml          # Fixed, warning-free GitHub Actions architecture
+├── content/
+│   ├── bio.md                  # Biography text file + portrait YAML metadata
+│   ├── education.md            # Academic historical timeline parameters
+│   ├── experiences.md          # Professional employment timelines 
+│   └── portfolio.md            # Article cards configuration dataset (Title, Banner, Link)
+├── templates/
+│   └── index.html              # Core Jinja2 markup Canvas with Claude theme variables
+├── generate.py                 # Core parsing engine script
+└── requirements.txt            # Python processing dependencies
+
+```
+
+---
+
+## 🎛️ Content Schema Formatting Laws
+
+To prevent build compilation failures, the data parameters stored inside the `content/` Markdown files must conform to strict structural guidelines.
+
+### Biography Configuration (`content/bio.md`)
+
+Includes optional metadata frontmatter properties mapping your name, professional title, and portrait imagery:
+
+```markdown
+---
+name: "Fabio Matricardi"
+role: "Industrial Automation Engineer & Local AI Architect"
+avatar: "[https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80](https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80)"
+---
+Your markdown-formatted biography goes here...
+
+```
+
+### Card Collections Formatting (`content/portfolio.md`)
+
+> ⚠️ **CRITICAL LOGIC:** YAML arrays are heavily indentation-sensitive. Dash items (`-`) must line up perfectly in the exact same vertical column. Do **not** use leading tabs or mismatched whitespace paddings.
+
+```markdown
+---
+- title: "The OpenCode Revolution"
+  description: "An analysis of executing local LLMs on consumer hardware."
+  banner: "[https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe](https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe)"
+  link: "[https://github.com](https://github.com)"
+- title: "Harness Engineering Frameworks"
+  description: "Moving beyond fragile prompts into rigid context boundaries."
+  banner: "[https://images.unsplash.com/photo-1639762681485-074b7f938ba0](https://images.unsplash.com/photo-1639762681485-074b7f938ba0)"
+  link: "[https://github.com](https://github.com)"
+---
+
+```
+
+---
+
+## 🚀 Execution & Automation Sequence
+
+Every single time a `git push` is submitted targeting the `main` branch, the internal runner takes care of compilation.
+
+### Initial First-Time Setup Requirements
+
+To allow the repository automation engine to safely deploy code without failing, you must unlock security write clearances:
+
+1. Navigate to your repository dashboard on the **GitHub website**.
+2. Click **Settings** (Gear icon) ──► **Actions** ──► **General**.
+3. Scroll down to the **Workflow permissions** perimeter block.
+4. Select **Read and write permissions**, then click **Save**.
+
+### Tracking and Initial Deployment
+
+Run these commands in your local terminal workspace directory to set up tracking and trigger the workflow for the first time:
+
+```bash
+git init
+git add .
+git commit -m "feat: infrastructure configuration for Claude Aesthetic portfolio"
+git branch -M main
+git remote add origin [https://github.com/YOUR_USERNAME/YOUR_REPOSITORY.git](https://github.com/YOUR_USERNAME/YOUR_REPOSITORY.git)
+git push -u origin main
+
+```
+
+### Activating the Live Website
+
+Once your initial workflow run registers a green checkmark under the **Actions** tab:
+
+1. Click on **Settings** ──► **Pages** in the left-hand navigation sidebar.
+2. Under **Build and deployment**, switch the source configuration option to **Deploy from a branch**.
+3. Set the specific branch target identifier to **`gh-pages`** and keep the directory at **`/(root)`**.
+4. Click **Save**.
+
+Your portfolio is officially live at `https://<YOUR-USERNAME>.github.io/<YOUR-REPO-NAME>/`!
+
+```
+
+***
+
+### How to Apply this to your Repository:
+1. Open your local project folder.
+2. Open or create a file named exactly `README.md`.
+3. Paste the markdown contents provided above inside the file and save.
+4. Run the standard update workflow push via your command terminal:
+   ```bash
+   git add README.md
+   git commit -m "docs: implement master system documentation in README"
+   git push
+
+```
+
+Your repository home screen is now fully documented, explaining exactly how your automation loops function behind the scenes!
