@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ bio_meta.name or 'Portfolio' }} | {{ bio_meta.role or 'Systems Engineer' }}</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- Tailwind CSS Engine -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        pampas: '#F4F3EE',
+                        charcoal: '#141413',
+                        claudeOrange: '#C15F3C',
+                        mutedBlue: '#6a9bcc',
+                        mossGreen: '#788c5d'
+                    },
+                    fontFamily: {
+                        sans: ['Poppins', 'sans-serif'],
+                        serif: ['Lora', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { font-family: 'Lora', serif; background-color: #F4F3EE; color: #141413; }
+        h1, h2, h3, h4 { font-family: 'Poppins', sans-serif; }
+        
+        /* Interactive micro-motions */
+        @keyframes revealUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-reveal { animation: revealUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) both; }
+        .delay-1 { animation-delay: 150ms; }
+        .delay-2 { animation-delay: 300ms; }
+    </style>
+</head>
+<body class="bg-pampas text-charcoal selection:bg-claudeOrange selection:text-white antialiased min-h-screen">
+
+    <!-- Hero / Profile Header Section -->
+    <header class="max-w-6xl mx-auto px-6 pt-20 pb-16 md:pt-32 md:pb-24">
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-16 items-center animate-reveal">
+            
+            <!-- Left Portrait Column (Asymmetrical sizing) -->
+            {% if bio_meta.avatar %}
+            <div class="md:col-span-4 flex justify-start">
+                <div class="relative group max-w-[280px] w-full aspect-square">
+                    <!-- Offset background design block to emphasize Claude style -->
+                    <div class="absolute inset-0 border border-claudeOrange translate-x-4 translate-y-4 rounded-xl transition-transform duration-300 group-hover:translate-x-2 group-hover:translate-y-2"></div>
+                    <div class="w-full h-full bg-charcoal rounded-xl overflow-hidden relative border border-charcoal/10">
+                        <img 
+                            src="{{ bio_meta.avatar }}" 
+                            alt="{{ bio_meta.name }}" 
+                            class="w-full h-full object-cover filter grayscale contrast-110 transition-all duration-500 ease-out group-hover:grayscale-0 group-hover:scale-105"
+                        >
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+
+            <!-- Right Bio Text Column -->
+            <div class="{% if bio_meta.avatar %}md:col-span-8{% else %}md:col-span-12{% endif %} space-y-4">
+                <span class="text-claudeOrange font-sans uppercase tracking-widest text-xs font-semibold block">// System Profile Activated</span>
+                <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight text-charcoal leading-none">
+                    {{ bio_meta.name }}
+                </h1>
+                <p class="text-lg md:text-xl font-sans text-charcoal/60 font-medium">
+                    {{ bio_meta.role }}
+                </p>
+                <div class="prose prose-lg font-serif text-charcoal leading-relaxed pt-2 max-w-3xl">
+                    {{ bio_html }}
+                </div>
+            </div>
+
+        </div>
+    </header>
+
+    <!-- Content Sections Matrix -->
+    <main class="max-w-6xl mx-auto px-6 pb-24">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
+            
+            <!-- Left Side: Experience & Education Timeline nodes -->
+            <div class="lg:col-span-5 space-y-16 animate-reveal delay-1">
+                
+                <!-- Experience -->
+                <section>
+                    <h2 class="text-xs uppercase tracking-widest font-bold text-charcoal/40 border-b border-charcoal/10 pb-3 mb-6">Experience</h2>
+                    <div class="space-y-8">
+                        {% for exp in experiences %}
+                        <div class="group">
+                            <span class="text-xs font-sans text-mossGreen font-semibold block mb-1">{{ exp.duration }}</span>
+                            <h3 class="text-lg font-bold font-sans tracking-tight text-charcoal group-hover:text-claudeOrange transition-colors duration-200">{{ exp.role }}</h3>
+                            <p class="text-sm font-sans text-charcoal/50 mb-2">{{ exp.company }}</p>
+                            <p class="text-sm text-charcoal/80 leading-relaxed font-serif">{{ exp.details }}</p>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </section>
+
+                <!-- Education -->
+                <section>
+                    <h2 class="text-xs uppercase tracking-widest font-bold text-charcoal/40 border-b border-charcoal/10 pb-3 mb-6">Education</h2>
+                    <div class="space-y-8">
+                        {% for edu in education %}
+                        <div>
+                            <span class="text-xs font-sans text-mutedBlue font-semibold block mb-1">{{ edu.duration }}</span>
+                            <h3 class="text-md font-bold font-sans text-charcoal">{{ edu.degree }}</h3>
+                            <p class="text-xs font-sans text-charcoal/50 mb-2">{{ edu.institution }}</p>
+                            <p class="text-sm text-charcoal/80 font-serif">{{ edu.details }}</p>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </section>
+
+            </div>
+
+            <!-- Right Side: Selected Portfolio Cards (Interactive highlight cards) -->
+            <div class="lg:col-span-7 animate-reveal delay-2">
+                <section>
+                    <h2 class="text-xs uppercase tracking-widest font-bold text-charcoal/40 border-b border-charcoal/10 pb-3 mb-6">Selected Articles & Projects</h2>
+                    <div class="grid grid-cols-1 gap-8">
+                        {% for card in portfolio %}
+                        <a href="{{ card.link }}" target="_blank" class="group block bg-white border border-charcoal/5 rounded-lg overflow-hidden transition-all duration-300 hover:border-claudeOrange/30 hover:shadow-xl hover:shadow-claudeOrange/5">
+                            <div class="aspect-[16/7] w-full bg-pampas overflow-hidden relative">
+                                <img src="{{ card.banner }}" alt="{{ card.title }}" class="w-full h-full object-cover filter grayscale contrast-115 mix-blend-multiply group-hover:grayscale-0 group-hover:scale-102 transition-all duration-500 ease-out">
+                                <div class="absolute inset-0 bg-gradient-to-t from-charcoal/20 to-transparent mix-blend-multiply"></div>
+                            </div>
+                            <div class="p-6">
+                                <h3 class="text-xl font-bold font-sans tracking-tight text-charcoal group-hover:text-claudeOrange transition-colors duration-200 flex items-center justify-between">
+                                    {{ card.title }}
+                                    <span class="text-claudeOrange opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 text-sm">→</span>
+                                </h3>
+                                <p class="mt-2 text-sm text-charcoal/70 font-serif leading-relaxed">{{ card.description }}</p>
+                            </div>
+                        </a>
+                        {% endfor %}
+                    </div>
+                </section>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-charcoal/5 max-w-6xl mx-auto px-6 py-12 text-center text-xs font-sans text-charcoal/40">
+        Generated automatically via GitHub Actions • Built with Claude Aesthetic
+    </footer>
+
+</body>
+</html>

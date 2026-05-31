@@ -1,0 +1,39 @@
+name: Deploy Portfolio to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main  # Adjust if your primary branch is called 'master'
+
+permissions:
+  contents: write
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code Base
+        uses: actions/checkout@v4
+
+      - name: Set up Python Environment
+        uses: actions/setup-python@v5
+        with:
+          python-node-version: '3.11'
+          cache: 'pip'
+
+      - name: Install Generation Dependencies
+        run: |
+          pip install -r requirements.txt
+
+      - name: Compile HTML Site
+        run: |
+          python generate.py
+
+      - name: Deploy Compiled index.html to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./
+          publish_branch: gh-pages
+          # Prevents the runner from destroying repository structures on target branches
+          keep_files: false
