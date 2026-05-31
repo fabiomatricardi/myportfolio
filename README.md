@@ -356,10 +356,14 @@ name: Deploy Portfolio to GitHub Pages
 on:
   push:
     branches:
-      - main  # Adjust if your primary branch is called 'master'
+      - main  # Set to master if your primary branch is master
 
 permissions:
   contents: write
+
+# Force the runner engine to use Node 24 directly to silence the deprecation logs
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: 'true'
 
 jobs:
   build-and-deploy:
@@ -371,11 +375,13 @@ jobs:
       - name: Set up Python Environment
         uses: actions/setup-python@v5
         with:
-          python-node-version: '3.11'
-          cache: 'pip'
+          python-version: '3.11'
+          # We temporarily remove the strict cache parameter for the first setup run 
+          # to clear the Cache 400 error block cleanly.
 
       - name: Install Generation Dependencies
         run: |
+          pip install --upgrade pip
           pip install -r requirements.txt
 
       - name: Compile HTML Site
@@ -388,9 +394,7 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./
           publish_branch: gh-pages
-          # Prevents the runner from destroying repository structures on target branches
-          keep_files: false 
-
+          keep_files: false
 ```
 
 ---
@@ -439,3 +443,9 @@ Once the initial Workflow runner completes execution successfully, a separate ta
 * Click **Settings** → **Pages**.
 * Under **Build and deployment**, switch the source dropdown to **Deploy from a branch**.
 * Select the newly created `gh-pages` branch, target the `/ (root)` folder directory, and save.
+
+
+> your page will be published at an address like this.
+
+
+[https://fabiomatricardi.github.io/myportfolio/](https://fabiomatricardi.github.io/myportfolio/)
