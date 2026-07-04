@@ -1,3 +1,5 @@
+<img src="https://github.com/fabiomatricardi/myportfolio/raw/main/portfolio.gif" width=1000>
+
 ## 1. Repository Structure
 
 To keep your workspace clean, organize your repository exactly like this:
